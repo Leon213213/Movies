@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/google-drive-video-player/static/css/main.1b4b197a.css",
-    "main.js": "/google-drive-video-player/static/js/main.3438df5d.js",
+    "main.js": "/google-drive-video-player/static/js/main.0cfd9cc6.js",
     "index.html": "/google-drive-video-player/index.html",
     "main.1b4b197a.css.map": "/google-drive-video-player/static/css/main.1b4b197a.css.map",
-    "main.3438df5d.js.map": "/google-drive-video-player/static/js/main.3438df5d.js.map"
+    "main.0cfd9cc6.js.map": "/google-drive-video-player/static/js/main.0cfd9cc6.js.map"
   },
   "entrypoints": [
     "static/css/main.1b4b197a.css",
-    "static/js/main.3438df5d.js"
+    "static/js/main.0cfd9cc6.js"
   ]
 }
