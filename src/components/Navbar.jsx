@@ -1,14 +1,11 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
-
 function Navbar() {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Leon Movies
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <div style={{display: "flex",
+     
+     height: "100px", backgroundColor: "black", justifyContent: "center", alignItems: "center", 
+     color: "white", width: "100vw"}}>
+    <h1>Leon Movies</h1>
+    </div>
   );
 }
 
