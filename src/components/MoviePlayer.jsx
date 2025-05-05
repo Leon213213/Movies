@@ -38,8 +38,12 @@ function MoviePlayer({ movieId }) {
       display: 'flex', 
       flexDirection: 'column',
       maxWidth: '1000px', 
-      margin: '0 auto', 
-      padding: '20px',
+      marginBottom: 'auto',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      paddingBottom: '20px',
+      paddingLeft: '20px',
+      paddingRight: '20px',
       width: '96%'
     }}>
       <h1 style={{ textAlign: 'center', width: '100%' }}>{movie.title}</h1>
@@ -71,6 +75,7 @@ function MoviePlayer({ movieId }) {
         ) : (
           <video
             controls
+            preload="metadata"
             style={{
               position: 'absolute',
               top: 0,
@@ -81,8 +86,10 @@ function MoviePlayer({ movieId }) {
             }}
             src={movie.videoUrl}
             onError={handleVideoError}
-            crossOrigin="anonymous"
+            crossOrigin="use-credentials"
+            playsInline
           >
+            <source src={movie.videoUrl} type="video/mp4" crossOrigin="use-credentials" />
             Your browser does not support the video tag.
           </video>
         )}

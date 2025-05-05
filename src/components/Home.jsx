@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Spongebob from './Spongebob';
 import FairyOddParents from './FairyOddParents';
 import MoviePlayer from './MoviePlayer';
+import './Home.css';
 
 function Home() {
   const [isShowsOpen, setIsShowsOpen] = useState(false);
@@ -42,15 +43,7 @@ function Home() {
   const renderDropdown = (items, isOpen, onItemClick) => {
     if (!isOpen) return null;
     return (
-      <div style={{
-        position: 'absolute',
-        top: '100%',
-        left: '0',
-        backgroundColor: 'black',
-        padding: '10px',
-        zIndex: 1000,
-        width: '100%'
-      }}>
+      <div className="dropdown-menu">
         {items.map((item) => (
           <button
             key={item.name}
@@ -59,20 +52,7 @@ function Home() {
               setIsShowsOpen(false);
               setIsMoviesOpen(false);
             }}
-            style={{
-              display: 'block',
-              width: '100%',
-              textAlign: 'left',
-              padding: '8px 12px',
-              margin: '5px 0',
-              backgroundColor: 'transparent',
-              border: 'none',
-              color: 'white',
-              cursor: 'pointer',
-              borderRadius: '3px'
-            }}
-            onMouseOver={(e) => e.target.style.backgroundColor = '#333'}
-            onMouseOut={(e) => e.target.style.backgroundColor = 'transparent'}
+            className="dropdown-item"
           >
             {item.name}
           </button>
@@ -82,66 +62,35 @@ function Home() {
   };
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      flexDirection: 'row',
-      minHeight: '100vh'
-    }}>
-      <div style={{ 
-        width: '250px', 
-        backgroundColor: 'black', 
-        paddingBottom: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        flexShrink: 0
-      }}>
-        <div style={{ position: 'relative', width: '100%', marginBottom: '10px' }}>
+    <div className="home-container">
+      <div className="sidebar">
+        <div className="dropdown-container">
           <button 
             onClick={() => {
               setIsShowsOpen(!isShowsOpen);
               setIsMoviesOpen(false);
             }}
-            style={{ 
-              textAlign: 'center', 
-              color: 'white', 
-              padding: '20px', 
-              backgroundColor: '#8e7676',
-              cursor: 'pointer',
-              border: 'none',
-              width: '100%'
-            }}
+            className="menu-button"
           >
-            Shows
+            Shows {isShowsOpen ? '▼' : '▶'}
           </button>
           {renderDropdown(shows, isShowsOpen, setCurrentShow)}
         </div>
 
-        <div style={{ position: 'relative', width: '100%' }}>
+        <div className="dropdown-container">
           <button 
             onClick={() => {
               setIsMoviesOpen(!isMoviesOpen);
               setIsShowsOpen(false);
             }}
-            style={{ 
-              textAlign: 'center', 
-              color: 'white', 
-              padding: '20px', 
-              backgroundColor: '#8e7676',
-              cursor: 'pointer',
-              border: 'none',
-              width: '100%'
-            }}
+            className="menu-button"
           >
-            Movies
+            Movies {isMoviesOpen ? '▼' : '▶'}
           </button>
           {renderDropdown(movies, isMoviesOpen, setCurrentShow)}
         </div>
       </div>
-      <div style={{ 
-        flex: 1, 
-        padding: '20px'
-      }}>
+      <div className="content">
         {renderShow()}
       </div>
     </div>

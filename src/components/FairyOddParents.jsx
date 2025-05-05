@@ -1,45 +1,108 @@
 import { useState } from 'react';
 
 function FairyOddParents() {
-  const videoId = 'fpeCHKwiJJY'; // Replace with actual FairyOddParents video IDs
-  const videoId2 = 'PUTl1i_iUcQ';
-  const videoId3 = 'goc5MgWSeEg';
-  const videoId4 = 'MuQKrSivRno';
-  const videoId5 = 'HOPw-y-2bvA';
-  const videoId6 = '28E-X3A8U0k';
-  const videoId7 = 'zTqszjYZpyY';
-  const videoId8 = 'h-d9khooZeI';
-  const videoId9 = 'i7CKWbaVSvM';
-  const videoId10 = 'Jwbig2bqWy8';
+  const [error, setError] = useState(null);
+
+  const videos = [
+    {
+      title: 'Episode 1',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E01.mp4'
+    },
+    {
+      title: 'Episode 2',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E02.mp4'
+    },
+    {
+      title: 'Episode 3',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E03.mp4'
+    },
+    {
+      title: 'Episode 4',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E04.mp4'
+    },
+    {
+      title: 'Episode 5',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E05.mp4'
+    },
+    {
+      title: 'Episode 6',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E06.mp4'
+    },
+    {
+      title: 'Episode 7',
+      videoUrl: 'https://leon-movies.s3.eu-north-1.amazonaws.com/Fairy+Odd+Parents/The+Fairly+Odd+Parents+S01+E07.mp4'
+    }
+  ];
+
+  const handleVideoError = (e) => {
+    console.error('Video Error:', e);
+    setError('Error loading video. Please check the console for details.');
+  };
 
   return (
     <div style={{ 
       display: 'flex', 
       flexDirection: 'column',
       maxWidth: '1000px', 
-      marginBottom: 'auto', 
+      marginBottom: 'auto',
       marginLeft: 'auto',
       marginRight: 'auto',
       paddingBottom: '20px',
+      paddingLeft: '20px',
+      paddingRight: '20px',
       width: '96%'
     }}>
       <h1 style={{ textAlign: 'center', width: '100%' }}>Fairy Odd Parents</h1>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      {/* Add more video divs here similar to Spongebob component */}
+      {videos.map((video, index) => (
+        <div key={index} style={{ marginBottom: '50px' }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>{video.title}</h2>
+          <div style={{ 
+            position: 'relative', 
+            paddingBottom: '56.25%', 
+            height: 0, 
+            overflow: 'hidden', 
+            backgroundColor: '#000'
+          }}>
+            {error ? (
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                backgroundColor: '#000',
+                padding: '20px',
+                textAlign: 'center'
+              }}>
+                {error}
+              </div>
+            ) : (
+              <video
+                controls
+                preload="metadata"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  border: 'none'
+                }}
+                onError={handleVideoError}
+                crossOrigin="use-credentials"
+                playsInline
+              >
+                <source src={video.videoUrl} type="video/mp4" crossOrigin="use-credentials" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
