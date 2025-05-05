@@ -4,13 +4,16 @@
   font-weight: 400;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #433e3e;
+  background-color: #2d2929;
 }
 
 #root {
   margin: 0 auto;
+  min-height: 100vh;
+  background-color: #2d2929;
 } 

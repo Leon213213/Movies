@@ -1,8 +1,8 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import VideoPlayer from './components/VideoPlayer';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 const theme = createTheme({
   palette: {
@@ -24,7 +24,7 @@ function App() {
         <div className="App">
           <Navbar />
           <Routes>
-            <Route path="/" element={<VideoPlayer />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </div>
       </Router>
