@@ -1,16 +1,19 @@
 import { useState } from 'react';
 
 function Spongebob() {
-  const videoId = 'fpeCHKwiJJY'; // Extract the video ID from the YouTube URL
-  const videoId2 = 'PUTl1i_iUcQ'; // Extract the video ID from the YouTube URL
-  const videoId3 = 'goc5MgWSeEg'; // Extract the video ID from the YouTube URL
-  const videoId4 = 'MuQKrSivRno'; // Extract the video ID from the YouTube URL
-  const videoId5 = 'HOPw-y-2bvA'; // Extract the video ID from the YouTube URL
-  const videoId6 = '28E-X3A8U0k'; // Extract the video ID from the YouTube URL
-  const videoId7 = 'zTqszjYZpyY'; // Extract the video ID from the YouTube URL
-  const videoId8 = 'h-d9khooZeI'; // Extract the video ID from the YouTube URL
-  const videoId9 = 'i7CKWbaVSvM'; // Extract the video ID from the YouTube URL
-  const videoId10 = 'Jwbig2bqWy8'; // Extract the video ID from the YouTube URL
+  // Array of S3 video URLs - replace these with your actual S3 video URLs
+  const videos = [
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E01+-+Help+Wanted.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E03+-+Tea+at+the+Treedome.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E04+-+Bubblestand.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E05+-+Ripped+Pants.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E06+-+Jellyfishing.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E08+-+Naughty+Nautical+Neighbors.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E09+-+Boating+School.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E10+-+Pizza+Delivery.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E11+-+Home+Sweet+Pineapple.mp4',
+    'https://leon-movies.s3.eu-north-1.amazonaws.com/Spongebob/SpongeBob+SquarePants+-+S01E12+-+Mermaid+Man+and+Barnacle+Boy.mp4',
+  ];
 
   return (
     <div style={{ 
@@ -24,166 +27,38 @@ function Spongebob() {
       width: '96%'
     }}>
       <h1 style={{ textAlign: 'center', width: '100%' }}>Spongebob Squarepants</h1>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
+      {videos.map((videoUrl, index) => (
+        <div 
+          key={index}
+          style={{ 
+            position: 'relative', 
+            paddingBottom: '56.25%', 
+            height: 0, 
+            overflow: 'hidden', 
+            marginBottom: index === videos.length - 1 ? '100px' : '50px',
+            backgroundColor: '#000000',
             borderRadius: '20px'
           }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId2}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId3}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId4}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId5}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId6}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId7}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId8}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '50px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId9}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
-      <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', marginBottom: '100px' }}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId10}?rel=0&modestbranding=1`}
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            borderRadius: '20px'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </div>
+        >
+          <video
+            controls
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              border: 'none',
+              borderRadius: '20px',
+              backgroundColor: '#000000',
+              objectFit: 'contain'
+            }}
+          >
+            <source src={videoUrl} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      ))}
     </div>
   );
 }
